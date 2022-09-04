@@ -1,24 +1,20 @@
-using LinearAlgebra
 include("method_parameter.jl")
 include("gradient_descent.jl")
 include("stochastic_gradient_descent.jl")
+include("math.jl")
 
-# 線形回帰
-function linear_regression(xmat::Matrix{T}, yvec::Vector{X}, method_param::MethodParameter = OLS()) where {T,X}
-    xmat_t = transpose(xmat)
-    # 最小二乗法
-    if typeof(method_param) == OLS
-        return inv(xmat_t * xmat) * xmat_t * yvec
-    # 最急降下法
-    elseif typeof(method_param) == GD
-        return gradient_descent(w -> 2 * xmat_t * (xmat * w - yvec)
+# ロジスティック回帰
+# yvecの各要素は{0,1}
+function logistic_regression(xmat::Matrix{T}, yvec::Vector{X}, method_param::MethodParameter) where {T,X}
+    if typeof(method_param) == GD
+        xmat_t = transpose(xmat)
+        return gradient_descent(w -> -xmat_t * (yvec - map(sigmoid, xmat*w))
                                 , method_param.initial_parameter
                                 , method_param.calcη
                                 , method_param.ϵ
                                 , method_param.max_epochs)
-    # 確率的勾配降下法
     elseif typeof(method_param) == SGD
-        return stochastic_gradient_descent((i,w) -> 2 * (dot(xmat[i,:],w) - yvec[i]) * xmat[i,:]
+        return stochastic_gradient_descent((i,w) -> -(yvec[i]-sigmoid(dot(w,xmat[i,:]))) * xmat[i,:]
                                            , length(yvec)
                                            , method_param.initial_parameter
                                            , method_param.calcη
@@ -28,3 +24,4 @@ function linear_regression(xmat::Matrix{T}, yvec::Vector{X}, method_param::Metho
         @error "Not supported $typeof(method_param)"
     end
 end
+
