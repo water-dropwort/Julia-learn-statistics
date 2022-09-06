@@ -1,5 +1,5 @@
-include("mean.jl")
-include("variance.jl")
+include("../Basic/mean.jl")
+include("../Basic/variance.jl")
 using LinearAlgebra
 
 # 単回帰(傾きa、切片bを返す)

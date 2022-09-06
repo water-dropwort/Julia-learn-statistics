@@ -1,7 +1,7 @@
 using LinearAlgebra
-include("method_parameter.jl")
-include("gradient_descent.jl")
-include("stochastic_gradient_descent.jl")
+include("../Type/method_parameter.jl")
+include("../Optimization/gradient_descent.jl")
+include("../Optimization/stochastic_gradient_descent.jl")
 
 # リッジ回帰
 function ridge_regression(xmat::Matrix{T}, yvec::Vector{U}, α::V, method_param::MethodParameter = OLS())  where {T,U,V}
