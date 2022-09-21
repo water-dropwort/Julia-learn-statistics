@@ -1,7 +1,7 @@
 abstract type MethodParameter end
 
-# 最小二乗法
-struct OLS <: MethodParameter
+# 導関数を0と置いて解析的に解く
+struct Diff0 <: MethodParameter
 end
 
 # 最急降下法

@@ -3,11 +3,11 @@ include("../Type/method_parameter.jl")
 include("../Optimization/gradient_descent.jl")
 include("../Optimization/stochastic_gradient_descent.jl")
 
-# 線形回帰
-function linear_regression(xmat::Matrix{T}, yvec::Vector{X}, method_param::MethodParameter = OLS()) where {T,X}
+# 線形回帰(最小二乗法)
+function linear_regression(xmat::Matrix{T}, yvec::Vector{X}, method_param::MethodParameter = Diff0()) where {T,X}
     xmat_t = transpose(xmat)
-    # 最小二乗法
-    if typeof(method_param) == OLS
+    # 解析的に解く
+    if typeof(method_param) == Diff0
         return inv(xmat_t * xmat) * xmat_t * yvec
     # 最急降下法
     elseif typeof(method_param) == GD

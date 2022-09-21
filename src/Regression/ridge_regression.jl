@@ -4,12 +4,12 @@ include("../Optimization/gradient_descent.jl")
 include("../Optimization/stochastic_gradient_descent.jl")
 
 # リッジ回帰
-function ridge_regression(xmat::Matrix{T}, yvec::Vector{U}, α::V, method_param::MethodParameter = OLS())  where {T,U,V}
+function ridge_regression(xmat::Matrix{T}, yvec::Vector{U}, α::V, method_param::MethodParameter = Diff0())  where {T,U,V}
     xmat_t = transpose(xmat)
     k = size(xmat,2)
     Imat = Matrix{Int64}(I,k,k) # 単位行列
-    # 最小二乗法
-    if typeof(method_param) == OLS
+    # 解析的に解く
+    if typeof(method_param) == Diff0
         return inv(xmat_t * xmat + α*Imat) * xmat_t * yvec
     # 最急降下法
     elseif typeof(method_param) == GD
