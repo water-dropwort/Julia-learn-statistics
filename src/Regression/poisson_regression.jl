@@ -3,7 +3,7 @@ include("../Optimization/gradient_descent.jl")
 include("../Optimization/stochastic_gradient_descent.jl")
 
 # ポアソン回帰
-function poisson_regression(xmat::Matrix{T}, yvec::Vector{X}, method_param::MethodParameter) where {T,X}
+function poisson_regression(xmat::Array{T}, yvec::Vector{X}, method_param::MethodParameter) where {T,X}
     if typeof(method_param) == GD
         xmat_t = transpose(xmat)
         return gradient_descent(w -> xmat_t * (map(exp, xmat*w) - yvec)
