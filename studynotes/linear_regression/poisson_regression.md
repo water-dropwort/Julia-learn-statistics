@@ -1,6 +1,9 @@
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 # ポアソン回帰
+```math
+\frac{1}{b}
+```
 回帰により求めたいパラメータのベクトル$\bm{\beta}$を最尤推定法により求める。<br>
 最急降下法で計算するものとする。<br>
 ポアソン分布
