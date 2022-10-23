@@ -4,7 +4,7 @@ euler: $e^{i\pi}=-1$
 最急降下法で計算するものとする。<br>
 ポアソン分布
 $$
-P(y|\lambda)= \frac{\lambda^{y}e^{\lambda}}{y!}
+P(y|\lambda)= {\lambda^{y}e^{\lambda}} \over {y!}
 $$
 に関し、
 $$
