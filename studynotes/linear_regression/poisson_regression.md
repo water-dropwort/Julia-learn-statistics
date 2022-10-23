@@ -22,3 +22,6 @@ l_ {\boldsymbol{x} ,y}(\boldsymbol{\beta})= \frac{\lambda^{y}e^{\lambda}}{y!}
 $$
 を最大にする $\boldsymbol{\hat{\beta}}$ を求める。
 
+# example
+When $a \ne 0$, there are two solutions to $(ax^2 + bx + c = 0)$ and they are 
+$$ x = {-b \pm \sqrt{b^2-4ac} \over 2a} $$
