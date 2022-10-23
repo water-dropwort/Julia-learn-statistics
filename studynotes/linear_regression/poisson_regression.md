@@ -3,9 +3,7 @@ euler: $e^{i\pi}=-1$
 回帰により求めたいパラメータのベクトル $\boldsymbol{\beta}$ を最尤推定法により求める。<br>
 最急降下法で計算するものとする。<br>
 ポアソン分布
-$$
-P(y|\lambda)= {\lambda^{y}e^{\lambda} \over y!}
-$$
+$$ P(y|\lambda)= {\lambda^{y}e^{\lambda} \over y!} $$
 に関し、
 $$
 \lambda = \exp {\boldsymbol{x} \boldsymbol{\beta}}
