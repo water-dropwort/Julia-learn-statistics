@@ -27,4 +27,5 @@ $$ \lambda = \exp {\boldsymbol{x} \boldsymbol{\beta}} $$
 $$ l_ {\boldsymbol{x} ,y}(\boldsymbol{\beta})= \frac{\lambda^{y}e^{\lambda}}{y!} $$
 
 を最大にする $\boldsymbol{\hat{\beta}}$ を求める。
+
 $$ \sin x = \sin x $$
