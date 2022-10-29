@@ -2,7 +2,7 @@ include("../Type/method_parameter.jl")
 include("../Optimization/gradient_descent.jl")
 include("../Optimization/stochastic_gradient_descent.jl")
 
-# ポアソン回帰
+# ポアソン回帰(対数リンク関数)
 function poisson_regression(xmat::Array{T}, yvec::Vector{X}, method_param::MethodParameter) where {T,X}
     if typeof(method_param) == GD
         xmat_t = transpose(xmat)
